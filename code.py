@@ -1,10 +1,16 @@
-a = 5
-b = 2
+import os
 
-<<<<<<< HEAD
+path = "names"
 
-c = a+b 
-=======
+names = []
 
-c = a - b
->>>>>>> test2
+for file in os.listdir(path):
+    file_path = os.path.join(path,file)
+
+    if os.path.isfile(file_path):
+        with open(file_path, "r") as f:
+            name = f.read()
+            names.append(name)
+
+for name in names:
+    print(f"Имя: {name}")
